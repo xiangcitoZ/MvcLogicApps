@@ -1,0 +1,27 @@
+﻿@model List<string>
+
+<h1 style="color:blue">
+    Azure Service Bus
+</h1>
+
+<form method="post">
+    <label>Mensaje en Queue/Topic</label>
+    <input type="text" name="mensaje" class="form-control" />
+    <button class="btn btn-warning" value="enviar" name="accion">
+        Enviar
+    </button>
+    <button class="btn btn-info" name="accion" value="recibir">
+        Recibir mensajes
+    </button>
+</form>
+<h2 style="color:red">@ViewData["MENSAJE"]</h2>
+@if (Model != null)
+{
+    <ul class="list-group">
+        @foreach (string msj in Model)
+        {
+            <li class="list-group-item">@msj</li>
+        }
+    </ul>
+}
+
